@@ -1,0 +1,6 @@
+#ideas
+:javascript
+  $(function() {
+    window.router = new OutThere.Routers.IdeasRouter({ideas: #{@ideas.to_json.html_safe}});
+    Backbone.history.start();
+  });

@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title Out There
+    %meta{charset: 'utf-8'}
+    %meta{content: 'IE=edge', 'http-equiv' => 'X-UA-Compatible'}
+    %meta{content: 'width=device-width, initial-scale=1', name: 'viewport'}
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    #wrapper
+      %header
+        %h1= link_to 'Out There', '/'
+        = link_to 'My Ideas', '#/index'
+        = link_to 'Submit Idea', '#/new'
+      = yield
