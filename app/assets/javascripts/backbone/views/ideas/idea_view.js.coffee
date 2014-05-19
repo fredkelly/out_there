@@ -6,7 +6,9 @@ class OutThere.Views.Ideas.IdeaView extends Backbone.View
   events:
     "click .destroy" : "destroy"
 
-  tagName: "tr"
+  tagName: "li"
+
+  className: "idea"
 
   destroy: () ->
     @model.destroy()

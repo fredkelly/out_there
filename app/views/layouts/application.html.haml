@@ -11,7 +11,9 @@
   %body
     #wrapper
       %header
-        %h1= link_to 'Out There', '/'
-        = link_to 'My Ideas', '#/index'
-        = link_to 'Submit Idea', '#/new'
+        %h1#logo= link_to 'Out There', '/'
+        %nav
+          %ul
+            %li= link_to 'Ideas', '#/index', class: 'button'
+            %li= link_to 'Submit', '#/new', class: 'button'
       = yield
