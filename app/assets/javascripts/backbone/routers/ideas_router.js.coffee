@@ -19,7 +19,12 @@ class OutThere.Routers.IdeasRouter extends Backbone.Router
     $("#ideas").html(@view.render().el)
 
   show: (id) ->
-    idea = @ideas.get(id)
+    console.log id
+    idea1 = @ideas.get(id)
+    console.log idea1
+    idea = new OutThere.Models.Idea(id: id)
+    idea.fetch()
+    console.log idea
 
     @view = new OutThere.Views.Ideas.ShowView(model: idea)
     $("#ideas").html(@view.render().el)

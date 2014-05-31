@@ -11,9 +11,8 @@
   %body
     #wrapper
       %header
-        %h1#logo= link_to 'Out There', '/'
         %nav
           %ul
-            %li= link_to 'Ideas', '#/index', class: 'button'
-            %li= link_to 'Submit', '#/new', class: 'button'
+            %li= link_to 'Vote', '/'
+            %li= link_to 'Ideas', '#/index'
       = yield
