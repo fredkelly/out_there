@@ -1,6 +1,12 @@
-#ideas
-:javascript
-  $(function() {
-    window.router = new OutThere.Routers.IdeasRouter({ideas: #{@ideas.to_json.html_safe}});
-    Backbone.history.start();
-  });
+%ol#ideas
+  %li
+    = form_for @new_idea do |f|
+      = f.text_field :name, placeholder: "Airbnb for dogs"
+      .hide
+        = f.text_area :summary, rows: 1, placeholder: "Dogs need a place to stay too.."
+        = f.submit
+  - @ideas.each do |idea|
+    %li
+      .progress{style: "width: #{idea.score * 100}%;"}
+      .idea
+        #{idea.name} (#{idea.votes_for.count})

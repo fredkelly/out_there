@@ -11,9 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require underscore
-//= require backbone
-//= require backbone_rails_sync
-//= require backbone_datalink
-//= require backbone/out_there
+//= require ajax_setup
+//= require voting
 //= require_tree .
+

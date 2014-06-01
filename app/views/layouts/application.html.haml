@@ -9,11 +9,9 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    #wrapper
-      %header
-        %h1#logo= link_to 'Out There', '/'
-        %nav
-          %ul
-            %li= link_to 'Ideas', '#/index', class: 'button'
-            %li= link_to 'Submit', '#/new', class: 'button'
-      = yield
+    %header
+      %nav
+        %ul
+          %li= link_to 'Review', root_path, class: ('active' if current_page?(root_path))
+          %li= link_to 'Submissions', ideas_path, class: ('active' if current_page?(ideas_path))
+    = yield

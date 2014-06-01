@@ -1,7 +1,13 @@
 class IdeasController < ApplicationController
-  respond_to :json
+  respond_to :html, :json
 
   def index
+    @ideas = current_user.ideas
+    @new_idea = current_user.ideas.new
+  end
+
+  # the "tinder" page
+  def review
     # ideas not created by or voted on by the current_user
     @ideas = Idea.where.not(user_id: current_user.id) \
       .joins('LEFT OUTER JOIN votes ON votes.votable_id = ideas.id') \
@@ -12,9 +18,10 @@ class IdeasController < ApplicationController
 
   def create
     @idea = current_user.ideas.build(idea_params)
-    @idea.save
 
-    respond_with @idea
+    if @idea.save
+      redirect_to ideas_path
+    end
   end
 
   def show

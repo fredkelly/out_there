@@ -1,0 +1,10 @@
+#carousel
+  %p.no-more{class: ('hide' if @ideas.any?)} Sorry, no more to show.
+  %ul
+    - @ideas.each_with_index do |idea, i|
+      %li{'data-id' => idea.id, 'class' => %w{idea} << ('active' if i == 0)}
+        %h2= idea.name
+        %p= idea.summary
+        .vote
+          %button.up Yes
+          %button.down No

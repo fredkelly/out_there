@@ -3,6 +3,116 @@
  *= require_tree .
  */
 
+$green: #82b55f;
+$red: #cc4037;
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hide {
+  display: none;
+}
+
+a, a:active, a:hover, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
-  font: 14px "Lucida Grande", "Lucida Sans Unicode", Verdana, "Jamrul", sans-serif;
+  font: 16px "Lucida Grande", "Lucida Sans Unicode", Verdana, "Jamrul", sans-serif;
+  padding-top: 80px;
+
+  > header {
+    background: #ccc;
+
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    nav {
+      ul {
+        @extend .list-unstyled;
+        overflow: hidden;
+        li {
+          float: left;
+          width: 50%;
+          a {
+            display: block;
+            padding: 1em 0;
+            text-align: center;
+            &.active {
+              background: #aaa;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* tinder carousel */
+#carousel {
+  @extend .container;
+  > ul {
+    @extend .list-unstyled;
+    .idea {
+      @extend .hide;
+      &.active {
+        display: block;
+      }
+      .vote > button {
+        width: 49%;
+        padding: 1em 0;
+        float: left;
+        border: 0;
+        color: #fff;
+        border-bottom: 3px solid rgba(0,0,0,0.2);
+        outline: none;
+
+        &.up { background-color: $green; margin-right: 2%; }
+        &.down { background-color: $red; }
+      }
+    }
+  }
+}
+
+/* your ideas */
+#ideas {
+  @extend .list-unstyled;
+  li {
+    border-bottom: 1px solid #eee;
+    position: relative;
+    .idea, .new_idea {
+      @extend .container;
+    }
+    .progress {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      z-index: -1;
+      background: $green;
+    }
+    .idea {
+      padding: 1em 0;
+    }
+    /* new idea form */
+    .new_idea {
+      input[type=text], textarea {
+        outline: none;
+        width: 100%;
+        padding: 1em 0;
+        border: 0;
+      }
+    }
+  }
 }

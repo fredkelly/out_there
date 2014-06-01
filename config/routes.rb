@@ -3,5 +3,5 @@ OutThere::Application.routes.draw do
     post :vote, on: :member
   end
 
-  root to: 'ideas#index'
+  root to: 'ideas#review'
 end
